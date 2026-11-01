@@ -35,14 +35,18 @@ class MainActivity : Activity() {
             setSingleLine(true)
         }
         panel.addView(input)
-        fun button(label: String, command: () -> Unit) {
-            panel.addView(Button(this).apply { text = label; setOnClickListener { command() } })
+        fun button(label: String, viewId: Int = android.view.View.NO_ID, command: () -> Unit) {
+            panel.addView(Button(this).apply {
+                id = viewId
+                text = label
+                setOnClickListener { command() }
+            })
         }
         button("Enable Accessibility in Android Settings") {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         }
-        button("Observe visible screen") { observeNow() }
-        button("Open Android Settings") { execute("open_settings") {
+        button("Observe visible screen", R.id.observe_screen_button) { observeNow() }
+        button("Open Android Settings", R.id.open_settings_button) { execute("open_settings") {
             startActivity(Intent(Settings.ACTION_SETTINGS)); true
         } }
         button("Open app from package name") { execute("open_app") {

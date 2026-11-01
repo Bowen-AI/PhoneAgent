@@ -1,0 +1,5 @@
+<resources>
+    <!-- Stable selectors for diagnostic UI; textual labels can be localized or styled. -->
+    <item name="observe_screen_button" type="id" />
+    <item name="open_settings_button" type="id" />
+</resources>
