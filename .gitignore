@@ -1,0 +1,12 @@
+# Never commit private screen measurements or device traces.
+benchmarks/measurements*.jsonl
+*.perfetto-trace
+*.trace
+.gradle/
+build/
+app/build/
+.idea/
+local.properties
+.env
+__pycache__/
+*.py[cod]
