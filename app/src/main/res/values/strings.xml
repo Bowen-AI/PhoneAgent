@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PhoneAgent (Development)</string>
+    <string name="a11y_description">Inspect the visible Android interface and perform only user-requested diagnostic actions. Enable only for testing.</string>
+</resources>
