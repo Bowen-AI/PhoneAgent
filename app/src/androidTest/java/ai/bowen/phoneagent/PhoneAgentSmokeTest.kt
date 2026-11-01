@@ -11,6 +11,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.util.regex.Pattern
 
 /** Deterministic smoke tests; does not claim third-party automation is implemented. */
 @RunWith(AndroidJUnit4::class)
@@ -36,14 +37,14 @@ class PhoneAgentSmokeTest {
     fun launcherShowsManualDiagnosticControls() {
         assertTrue(
             "Observe action must be available",
-            device.wait(Until.hasObject(By.text("Observe visible screen")), 5000)
+            device.wait(Until.hasObject(By.text(Pattern.compile("(?i)observe visible screen"))), 5000)
         )
     }
 
     @Test
     fun userCanNavigateToAndroidSettings() {
         val settingsButton = device.wait(
-            Until.findObject(By.text("Open Android Settings")), 10000
+            Until.findObject(By.text(Pattern.compile("(?i)open android settings"))), 10000
         )
         assertNotNull("Settings button should be visible", settingsButton)
         settingsButton!!.click()
